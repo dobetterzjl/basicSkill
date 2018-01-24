@@ -1,0 +1,13 @@
+//在click事件中
+function getCursorPosition(obj){
+  var cursorIndex = 0;
+  if(document.selection){
+    obj.focus();
+    var range = document.selection.createRange();
+    range.moveStart('character',-obj.value.length);
+    cursorIndex = range.text.length;
+  }else if(obj.selectionStart || obj.selectionStart == 0){
+    cursorIndex = obj.selectionStart;
+  }
+  return cursorIndex;
+}
